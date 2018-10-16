@@ -41,6 +41,7 @@ public class Node {
 		std::push_heap(this->begin(), this->end(), compare_gen()); 
 	};
 
+	
 	template <class node_t, class fgh_t, class node_key>
 	void a_vector_gen::pop_node() {
 		std::pop_heap(this->begin(), this->end(), compare_gen());
