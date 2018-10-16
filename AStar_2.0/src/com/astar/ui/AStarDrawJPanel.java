@@ -29,7 +29,7 @@ public class AStarDrawJPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private BufferedImage image;
 	private Graphics2D g;
-	private Image offScreenImage; // å›¾å½¢ç¼“å­˜
+	private Image offScreenImage; // Í¼ĞÎ»º´æ
 	private DrawCanvas canvas;
 
 	private int S_X = -1, S_Y = -1, E_X = -1, E_Y = -1;
@@ -44,7 +44,7 @@ public class AStarDrawJPanel extends JPanel {
 		init();
 	}
 
-	// åˆå§‹åŒ–
+	// ³õÊ¼»¯
 	public void init() {
 		this.removeAll();
 		this.setLayout(null);
@@ -53,7 +53,7 @@ public class AStarDrawJPanel extends JPanel {
 		drawType_inside = AStar.CUB_PATH;
 		image = new BufferedImage(AStar.MAP_SIZE, AStar.MAP_SIZE, BufferedImage.TYPE_INT_RGB);
 		g = (Graphics2D) image.getGraphics();
-		offScreenImage = null; // å›¾å½¢ç¼“å­˜
+		offScreenImage = null; // Í¼ĞÎ»º´æ
 		canvas = new DrawCanvas();
 		S_X = -1;
 		S_Y = -1;
@@ -106,7 +106,7 @@ public class AStarDrawJPanel extends JPanel {
 	}
 
 	/**
-	 * ç”»è·¯å¾„
+	 * »­Â·¾¶
 	 * 
 	 * @param node
 	 */
@@ -126,7 +126,7 @@ public class AStarDrawJPanel extends JPanel {
 	}
 
 	/**
-	 * æ¸…é™¤è·¯å¾„
+	 * Çå³ıÂ·¾¶
 	 */
 	public void clearPath() {
 		if (null != this.nowPathNode) {
@@ -138,7 +138,7 @@ public class AStarDrawJPanel extends JPanel {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
-				System.out.println("æ¶ˆé™¤ï¼š" + currentNode);
+				System.out.println("Ïû³ı£º" + currentNode);
 				if (!currentNode.isStart()) {
 					drawForInside(currentNode.getX(), currentNode.getY());
 				}
@@ -149,7 +149,7 @@ public class AStarDrawJPanel extends JPanel {
 	}
 
 	/**
-	 * å¤–éƒ¨ç”»å›¾ç”¨,å› æ­¤ä¼ å…¥çš„x,yæ˜¯åƒç´ ä½ç½®ï¼Œæ‰€ä»¥é™¤ä»¥AStar.CUB_SIZEåœ¨è°ƒç”¨
+	 * Íâ²¿»­Í¼ÓÃ,Òò´Ë´«ÈëµÄx,yÊÇÏñËØÎ»ÖÃ£¬ËùÒÔ³ıÒÔAStar.CUB_SIZEÔÚµ÷ÓÃ
 	 * 
 	 * @param x
 	 * @param y
@@ -159,7 +159,7 @@ public class AStarDrawJPanel extends JPanel {
 	}
 
 	/**
-	 * å†…éƒ¨ç”»å›¾ç”¨ï¼Œä¼ å…¥x,yæ˜¯intæ•°ç»„çš„åæ ‡ï¼Œ
+	 * ÄÚ²¿»­Í¼ÓÃ£¬´«Èëx,yÊÇintÊı×éµÄ×ø±ê£¬
 	 * 
 	 * @param x
 	 * @param y
@@ -169,7 +169,7 @@ public class AStarDrawJPanel extends JPanel {
 	}
 
 	/**
-	 * ç”»å›¾
+	 * »­Í¼
 	 * 
 	 * @param x
 	 * @param y
@@ -307,10 +307,10 @@ public class AStarDrawJPanel extends JPanel {
 		@Override
 		public void update(Graphics g) {
 			if (offScreenImage == null)
-				offScreenImage = this.createImage(AStar.MAP_SIZE, AStar.MAP_SIZE); // æ–°å»ºä¸€ä¸ªå›¾åƒç¼“å­˜ç©ºé—´,è¿™é‡Œå›¾åƒå¤§å°ä¸º800*600
-			Graphics gImage = offScreenImage.getGraphics(); // æŠŠå®ƒçš„ç”»ç¬”æ‹¿è¿‡æ¥,ç»™gImageä¿å­˜ç€
-			paint(gImage); // å°†è¦ç”»çš„ä¸œè¥¿ç”»åˆ°å›¾åƒç¼“å­˜ç©ºé—´å»
-			g.drawImage(offScreenImage, 0, 0, AStar.MAP_SIZE, AStar.MAP_SIZE, null); // ç„¶åä¸€æ¬¡æ€§æ˜¾ç¤ºå‡ºæ¥
+				offScreenImage = this.createImage(AStar.MAP_SIZE, AStar.MAP_SIZE); // ĞÂ½¨Ò»¸öÍ¼Ïñ»º´æ¿Õ¼ä,ÕâÀïÍ¼Ïñ´óĞ¡Îª800*600
+			Graphics gImage = offScreenImage.getGraphics(); // °ÑËüµÄ»­±ÊÄÃ¹ıÀ´,¸øgImage±£´æ×Å
+			paint(gImage); // ½«Òª»­µÄ¶«Î÷»­µ½Í¼Ïñ»º´æ¿Õ¼äÈ¥
+			g.drawImage(offScreenImage, 0, 0, AStar.MAP_SIZE, AStar.MAP_SIZE, null); // È»ºóÒ»´ÎĞÔÏÔÊ¾³öÀ´
 		}
 	}
 }
